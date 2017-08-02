@@ -9,15 +9,15 @@ public class Main {
 //        Interval1D interval1D = new Interval1D(6);
 //        CyclicShift cyclicShift = new CyclicShift("1234", "3412");
 //        Mystery mystery = new Mystery("1234");
-        Stack<Integer> stack = new Stack<>();
+//        Stack<Integer> stack = new Stack<>();
 //        System.out.println(stack.isEmpty());
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(3);
+//        stack.push(1);
+//        stack.push(2);
+//        stack.push(3);
+//        stack.push(3);
 
 //        System.out.println(stack.reverse(stack.first));
-        System.out.println(stack.reverseRec(stack.first));
+//        System.out.println(stack.reverseRec(stack.first));
 //        System.out.println(stack.reverse1(stack.first));
 
 //        System.out.println(stack.iterator().hasNext());
@@ -54,5 +54,7 @@ public class Main {
 //
 //        System.out.println(spendTime + "ms");
 //        System.out.println(spendTime1 + "ms");
+
+        BinarySearch binarySearch = new BinarySearch(new int[]{1, 5, 5, 5, 5, 6, 7}, 5);
     }
 }
