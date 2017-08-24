@@ -5,87 +5,73 @@ package ru.alhorithms.work;
         import org.openqa.selenium.WebDriver;
         import org.openqa.selenium.WebElement;
         import org.openqa.selenium.chrome.ChromeDriver;
-        import org.openqa.selenium.support.ui.ExpectedCondition;
-        import org.openqa.selenium.support.ui.WebDriverWait;
+        import org.openqa.selenium.interactions.Actions;
 
 public class Selenium2Example  {
-    public static void main(String[] args) {
-        // Create a new instance of the Firefox driver
-        // Notice that the remainder of the code relies on the interface,
-        // not the implementation.
 
+    private static WebElement element;
 
-//        // And now use this to visit Google
-//        driver.get("http://www.google.com");
-//        // Alternatively the same thing can be done like this
-//        // driver.navigate().to("http://www.google.com");
-//
-//        // Find the text input element by its name
-//        WebElement element = driver.findElement(By.name("q"));
-//
-//        // Enter something to search for
-//        element.sendKeys("Cheese!");
-//
-//        // Now submit the form. WebDriver will find the form for us from the element
-//        element.submit();
-//
-//        // Check the title of the page
-//        System.out.println("Page title is: " + driver.getTitle());
-//
-//        // Google's search is rendered dynamically with JavaScript.
-//        // Wait for the page to load, timeout after 10 seconds
-//        (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
-//            public Boolean apply(WebDriver d) {
-//                return d.getTitle().toLowerCase().startsWith("cheese!");
-//            }
-//        });
-//
-//        // Should see: "cheese! - Google Search"
-//        System.out.println("Page title is: " + driver.getTitle());
-//
-////        Close the browser
-//        driver.quit();
+    public static void main(String[] args) throws Exception {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vasilevichvv\\Desktop\\All\\test\\src\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\All\\test\\src\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        driver.get("https://sue.roskazna.ru");
 
-        driver.get("https://83.229.175.94:15000/netaccess/loginuser.html");
-
-        WebElement element = driver.findElement(By.name("username"));
-        element.sendKeys("sue_mto");
-
-        element = driver.findElement(By.name("password"));
-        element.sendKeys("Te1b3cyi2K");
-
-        element = driver.findElement(By.name("Login"));
+        if (!driver.getTitle().equals("ПО СУЭ ФК: Имя входа")) {
+            element = driver.findElement(By.name("login"));
+            element.click();
 
 
-//        try {
-//            Thread.sleep(100000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+            element = driver.findElement(By.name("username"));
+            element.sendKeys("sue_mto");
 
-        driver.quit();
+            element = driver.findElement(By.name("password"));
+            element.sendKeys("Te1b3cyi2K");
 
+            element = driver.findElement(By.name("Login"));
+            element.click();
+        }
 
+        driver.get("https://sue.roskazna.ru");
 
-
-        WebDriver driver1 = new ChromeDriver();
-        driver1.get("https://sue.roskazna.ru");
-
-        element = driver1.findElement(By.name("user.id"));
+        element = driver.findElement(By.name("user.id"));
         element.sendKeys("ВАСИЛЕВИЧ ВВ");
 
-
-        element = driver1.findElement(By.id("LoginPassword"));
+        element = driver.findElement(By.id("LoginPassword"));
         element.sendKeys("Egjhcndj");
 
-        element = driver1.findElement(By.id("loginBtn"));
+        element = driver.findElement(By.id("loginBtn"));
         element.click();
 
-        element = driver1.findElement(By.id("ext-gen97"));
-        element.click();
+        Thread.sleep(900);
+
+        element = driver.findElement(By.xpath("//*[@id=\"ext-gen96\"]"));
+        Actions mouse = new Actions(driver);
+        mouse.moveToElement(element).click().build().perform();
+
+        Thread.sleep(900);
+
+        element = driver.findElement(By.xpath("//*[@id=\"ROOT/Управление инцидентами/Управление инцидентами\"]/img[1]"));
+        mouse = new Actions(driver);
+        mouse.moveToElement(element).click().build().perform();
+
+        Thread.sleep(900);
+
+        element = driver.findElement(By.xpath("//*[@id=\"ROOT/Управление инцидентами/Управление инцидентами/Поиск инцидентов\"]"));
+        mouse = new Actions(driver);
+        mouse.moveToElement(element).click().build().perform();
+
+        Thread.sleep(5000);
+
+        element = driver.findElement(By.id("ext-gen151")).findElement(By.id("ext-gen156")).findElement(By.id("X10"));
+        mouse = new Actions(driver);
+        mouse.moveToElement(element).click().build().perform();
+
+//        element = driver.findElement(By.xpath("//*[@id=\"X10Border\"]"));
+//        element.sendKeys("q");
+
+
+
 
     }
 }

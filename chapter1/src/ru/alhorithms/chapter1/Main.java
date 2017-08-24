@@ -56,5 +56,9 @@ public class Main {
 //        System.out.println(spendTime1 + "ms");
 
         BinarySearch binarySearch = new BinarySearch(new int[]{1, 5, 5, 5, 5, 6, 7}, 5);
+        QuickSort quickSort = new QuickSort();
+
+
+
     }
 }
