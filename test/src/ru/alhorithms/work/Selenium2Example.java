@@ -46,7 +46,7 @@ public class Selenium2Example  {
 ////        Close the browser
 //        driver.quit();
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vasilevichvv\\Desktop\\Java\\test\\src\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vasilevichvv\\Desktop\\All\\test\\src\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         driver.get("https://83.229.175.94:15000/netaccess/loginuser.html");
@@ -60,11 +60,11 @@ public class Selenium2Example  {
         element = driver.findElement(By.name("Login"));
 
 
-        try {
-            Thread.sleep(100000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(100000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
         driver.quit();
 
@@ -84,9 +84,8 @@ public class Selenium2Example  {
         element = driver1.findElement(By.id("loginBtn"));
         element.click();
 
-        element = driver1.findElement(By.id("ext-gen100"));
+        element = driver1.findElement(By.id("ext-gen97"));
         element.click();
 
-        driver1.quit();
     }
 }
