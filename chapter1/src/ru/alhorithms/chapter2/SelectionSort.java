@@ -37,6 +37,11 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-
+        Integer[] Array = new Integer [] {4,8,3,9,8};
+        System.out.println(isSorted(Array));
+        sort(Array);
+        show(Array);
+        System.out.println();
+        System.out.println(isSorted(Array));
     }
 }
