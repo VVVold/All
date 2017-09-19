@@ -1,17 +1,17 @@
 package ru.alhorithms.chapter2;
 
 
+import java.util.Random;
+
 public class SelectionSort {
 
     public static void sort(Comparable a[]) {
         for (int i = 0; i < a.length; i++) {
             int min = i;
-            for (int j = i + 1; j < a.length; j++) {
+            for (int j = i + 1; j < a.length; j++)
                 if (less(a[j], a[min])) min = j;
-                exch(a, min, i);
-            }
+            exch(a, min, i);
         }
-
     }
 
     private static boolean less (Comparable a, Comparable b) {
@@ -37,7 +37,14 @@ public class SelectionSort {
     }
 
     public static void main(String[] args) {
-        Integer[] Array = new Integer [] {4,8,3,9,8};
+        int N = 5;
+        Integer[] Array = new Integer [N];
+        for (int i = 0; i < N; i++) {
+            Array[i] = i;
+        }
+
+        show(Array);
+        System.out.println();
         System.out.println(isSorted(Array));
         sort(Array);
         show(Array);
