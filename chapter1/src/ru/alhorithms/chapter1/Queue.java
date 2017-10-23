@@ -33,11 +33,11 @@ public class Queue<Item> implements Iterable {
         Node next;
     }
 
-    boolean isEmpty() { return N == 0; }
+    public boolean isEmpty() { return N == 0; }
 
     int size() { return N; }
 
-    void enqueue(Item item) {
+    public void enqueue(Item item) {
         Node oldlast = last;
         last = new Node();
         last.item = item;
@@ -47,7 +47,7 @@ public class Queue<Item> implements Iterable {
         N++;
     }
 
-    Item dequeue() {
+    public Item dequeue() {
         Item item = first.item;
         first = first.next;
         if (isEmpty()) last = null;
